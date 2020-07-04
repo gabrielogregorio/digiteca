@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 04/07/2020 às 21:15
+-- Tempo de geração: 04/07/2020 às 23:12
 -- Versão do servidor: 10.4.11-MariaDB
 -- Versão do PHP: 7.4.6
 
@@ -24,25 +24,145 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `pessoas`
+-- Estrutura para tabela `ADMINISTRADOR`
 --
 
-CREATE TABLE `pessoas` (
-  `CPF` varchar(11) NOT NULL,
-  `NOME` varchar(50) NOT NULL,
-  `SOBRENOME` varchar(50) NOT NULL,
-  `DATA_NASCIMENTO` date NOT NULL
+CREATE TABLE `ADMINISTRADOR` (
+  `LOGIN` varchar(20) DEFAULT NULL,
+  `SENHA` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `ADMINISTRADOR`
+--
+
+INSERT INTO `ADMINISTRADOR` (`LOGIN`, `SENHA`) VALUES
+('ADMIN', 'ADMIN');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `EMPRESTIMO`
+--
+
+CREATE TABLE `EMPRESTIMO` (
+  `ID` int(11) NOT NULL,
+  `LIVRO_ISBN` varchar(13) NOT NULL,
+  `CPF_PESSOA` varchar(11) NOT NULL,
+  `DATA_EMPRESTADO` date NOT NULL,
+  `TEMPO_EMPRESTIMO` int(11) NOT NULL,
+  `STATUS_LIVRO` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `EMPRESTIMO`
+--
+
+INSERT INTO `EMPRESTIMO` (`ID`, `LIVRO_ISBN`, `CPF_PESSOA`, `DATA_EMPRESTADO`, `TEMPO_EMPRESTIMO`, `STATUS_LIVRO`) VALUES
+(1, '9802345257834', '90091120047', '2020-07-04', 3, 'PERDIDO'),
+(2, '7533746477234', '90091120047', '2020-07-02', 5, 'NÃO DEVOLVIDO'),
+(3, '9802345257834', '05042237046', '2020-06-04', 2, 'DEVOLVIDO'),
+(4, '9802345257834', '90091120047', '2020-07-29', 14, 'NÃO DEVOLVIDO'),
+(5, '7234165353453', '05042237046', '2020-06-25', 7, 'NÃO DEVOLVIDO'),
+(6, '9802345257834', '05042237046', '2020-07-01', 9, 'NÃO DEVOLVIDO');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `LIVROS`
+--
+
+CREATE TABLE `LIVROS` (
+  `ISBN` varchar(13) NOT NULL,
+  `AUTOR` varchar(50) DEFAULT NULL,
+  `TITULO` varchar(100) NOT NULL,
+  `DESCRICAO` tinytext DEFAULT NULL,
+  `GENERO` varchar(20) DEFAULT NULL,
+  `UNIDADES_DISPONIVEIS` int(11) NOT NULL,
+  `EDITORA` varchar(50) DEFAULT NULL,
+  `ANO_PUBLICACAO` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `LIVROS`
+--
+
+INSERT INTO `LIVROS` (`ISBN`, `AUTOR`, `TITULO`, `DESCRICAO`, `GENERO`, `UNIDADES_DISPONIVEIS`, `EDITORA`, `ANO_PUBLICACAO`) VALUES
+('1231231244735', 'GHAY TWO', 'A LUA ILUMINANDO O SOL', 'UMA LOUCO QUE ACHAVA QUE A TERRA ERA REDONDA', 'DO LIVRO OU DO AUTOR', 2, 'AMAZON PRIME', '2020-02-01'),
+('7234165353453', 'ALU KA NA', 'O RESGATE DO THOE', 'ERA UMA VEZ ALGUEM QUE QUERIA RESGATAR O THOR, É ISSO!', 'COMEDIA', 12, 'PREENCHER', '2015-02-01'),
+('7533746477234', 'OLAVO DE CARVLHO', 'COMO SER UM IDIOTA', 'APRENDA COM O MESTRE', 'DRAME', 20, 'RENOVAR', '2019-01-02'),
+('9802345257834', 'JAMES BOND', 'NOVO TITULO', 'SEM PALAVRAS, O  LIVRO É BOM!', 'TERROR', 5, 'RENOVAR', '2020-02-01');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `USUARIOS`
+--
+
+CREATE TABLE `USUARIOS` (
+  `CPF` varchar(11) NOT NULL,
+  `NOME` varchar(100) DEFAULT NULL,
+  `SOBRENOME` varchar(100) DEFAULT NULL,
+  `EMAIL` varchar(100) DEFAULT NULL,
+  `TELEFONE` int(13) DEFAULT NULL,
+  `DATA_NASCIMENTO` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `USUARIOS`
+--
+
+INSERT INTO `USUARIOS` (`CPF`, `NOME`, `SOBRENOME`, `EMAIL`, `TELEFONE`, `DATA_NASCIMENTO`) VALUES
+('05042237046', 'GABRIEL', 'GREGORIO', 'GABRIEL.@NEUTRO.COM', 178723242, '2001-01-22'),
+('75059876071', 'Severino', 'Ricardo', 'SEVERINOB@PT.ORG.COM', 9923424, '1995-03-05'),
+('90091120047', 'BRBRUNO', 'Henrique', 'BRUNO@DEDIA.COM', 981232131, '1998-01-02'),
+('92981061062', 'Nelson', ' Thales', 'TALHES@NELSON.PT', 1242312412, '1997-02-07'),
+('93830678029', 'Bruno', 'Juan', 'BRUNO@NALRO.GOV.US', 998232523, '1993-03-12');
 
 --
 -- Índices de tabelas apagadas
 --
 
 --
--- Índices de tabela `pessoas`
+-- Índices de tabela `EMPRESTIMO`
 --
-ALTER TABLE `pessoas`
+ALTER TABLE `EMPRESTIMO`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `CPF_PESSOA` (`CPF_PESSOA`),
+  ADD KEY `LIVRO_ISBN` (`LIVRO_ISBN`);
+
+--
+-- Índices de tabela `LIVROS`
+--
+ALTER TABLE `LIVROS`
+  ADD PRIMARY KEY (`ISBN`);
+
+--
+-- Índices de tabela `USUARIOS`
+--
+ALTER TABLE `USUARIOS`
   ADD PRIMARY KEY (`CPF`);
+
+--
+-- AUTO_INCREMENT de tabelas apagadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `EMPRESTIMO`
+--
+ALTER TABLE `EMPRESTIMO`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Restrições para dumps de tabelas
+--
+
+--
+-- Restrições para tabelas `EMPRESTIMO`
+--
+ALTER TABLE `EMPRESTIMO`
+  ADD CONSTRAINT `EMPRESTIMO_ibfk_1` FOREIGN KEY (`CPF_PESSOA`) REFERENCES `USUARIOS` (`CPF`),
+  ADD CONSTRAINT `EMPRESTIMO_ibfk_2` FOREIGN KEY (`LIVRO_ISBN`) REFERENCES `LIVROS` (`ISBN`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
