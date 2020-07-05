@@ -18,9 +18,9 @@
         $mes = strval($mes);
         $ano = strval($ano);
 
-		print_r("$dia/$mes/$ano" );
+		print_r("$ano$mes$dia" );
 	}
 
 
-	
+
 ?>

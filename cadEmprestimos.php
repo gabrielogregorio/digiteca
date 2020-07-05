@@ -8,28 +8,34 @@
 
 			<form action="cadEmprestimosBD.php" method="post">
 
+                <!--
 			    <div class="form-group">
 			      <label>Livro</label>
-			      <select nome="txtLIVRO_ISBN" class="form-control">
-			        <option selected>Livro</option>
+ 			      <select name="txtLIVRO_ISBN" class="form-control">
 
-					<?php
-					require_once("conexao/conexao.php");
+					<php
+						require_once("conexao/conexao.php");
 
-					$select = $conexao->query("SELECT TITULO, ISBN FROM LIVROS ORDER BY TITULO");
-					$resultado = $select->fetchAll();
+						$select = $conexao->query("SELECT TITULO, ISBN FROM LIVROS ORDER BY TITULO");
+						$resultado = $select->fetchAll();
 
-					if($resultado)
-					{
-					     foreach ($resultado as $linha) 
-					     {
+						if($resultado)
+						{
+						     foreach ($resultado as $linha) 
+						     {
 					?>
 
-    			        <option value="<?php echo $linha["ISBN"]; ?>" > <?php echo $linha["TITULO"]; ?> </option>
-					<?php }} ?>
+    			        <option value="<php echo $linha["ISBN"];?>"><php echo 	$linha["TITULO"];?></option>
+					<php }} ?>
 
-			      </select name="txtLIVRO_ISBN">
-			    </div>
+			      </select>
+			    </div>-->
+
+
+			  <div class="form-group">
+			    <label>ISBN</label>
+			    <input type="text" class="form-control" name="txtLIVRO_ISBN" placeholder="Informe o ISBN do usuário" >
+			  </div>
 
 
 			  <div class="form-group">
@@ -44,7 +50,8 @@
 
 			  <div class="form-group">
 			    <label >Data do Empréstimo</label>
-			  <input class="form-control" id="data_emprestimo" name= "txtDATA_EMPRESTADO" type="text" placeholder="<?php obter_data_dd_mm_yyyy() ?>" disabled> 
+
+			  <input class="form-control" id="data_emprestimo" name= "txtDATA_EMPRESTADO" type="text" value="<?php obter_data_dd_mm_yyyy() ?>"> 
 			</div>
 
 			  <div class="form-group">
