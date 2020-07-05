@@ -2,12 +2,23 @@
 
 <?php include('header.html'); ?>
 
+
+
     <div class="page-container">
+
+ 
+
+
         <div class="content-wrap">
+
+
+
+        <div class="card card-header" style="width: 36rem; height: 42rem; border-radius: 15px;">
+
             <form class="form-signin">
                 <div class="text-center mb-4">
 
-                    <img class="mb-4" src="/assets/images/digiteca.png" alt="Digiteca">
+                    <img class="mb-4" src="/assets/images/digiteca_.png" alt="Digiteca" width="389" height="116">
 
                     <div class="alert alert-danger" role="alert">
                          Acesso permitido somente para Administradores
@@ -32,7 +43,16 @@
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
                 <p class="mt-5 mb-3 text-muted text-center">Copyright &copy; DIGITECA <?php echo date('Y')?></p>
             </form>
+
+
+            </card>
+
         </div>
+
+
+
     </div>
+
+
 
 <?php include('footer.html'); ?>
