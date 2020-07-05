@@ -7,7 +7,7 @@
             <div class="card card-header" id="card-style">
                 <form class="form-signin">
                     <div class="text-center mb-4">
-                        <img class="mb-4" src="../assets/images/digiteca_.png" alt="Digiteca" width="389" height="116">
+                        <img class="mb-4" src="http://localhost/digiteca/assets/images/digiteca_.png" alt="Digiteca" width="389" height="116">
                         <div class="alert alert-danger" role="alert">
                             Acesso permitido somente para Administradores
                         </div>
