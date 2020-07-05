@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,3 +26,12 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>	
+=======
+<?php include('layout/header.html');?>
+
+
+<h1>Olá,eu sou um Home</h1>
+
+
+<?php include('layout/footer.html');?>
+>>>>>>> d98ddafc3cab9d4738e1bf3e2281a49577718aef
