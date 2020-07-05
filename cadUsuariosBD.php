@@ -1,10 +1,8 @@
 <?php
 
-     include('seguranca/seguranca.php');
-
+    include('seguranca/seguranca.php');
     
     session_start(); //iniciando um sessão
-    echo $_SESSION["txtLOGIN"];
 
     if (administrador_logado() == false){
        header("location:index.php");
@@ -13,48 +11,26 @@
 
     require_once("conexao/conexao.php");
 
-	if(!filter_input(INPUT_POST, "txtNOME",FILTER_SANITIZE_STRING))
-	{
-		echo("Este nome não é válido!");
-		exit;
-	}
+    $teste_CPF = campo_e_valido("txtCPF", "cpf");
+    $teste_NOME = campo_e_valido("txtNOME", "nome");
+    $teste_SOBRENOME = campo_e_valido("txtSOBRENOME", "sobrenome");
+    $teste_EMAIL = campo_e_valido("txtEMAIL", "E-mail");
+    $teste_TELEFONE = campo_e_valido("txtTELEFONE", "telefone");
+    $teste_DATA_NASCIMENTO = campo_e_valido("txtDATA_NASCIMENTO", "Data de Nascimento");
 
-	if(!filter_input(INPUT_POST, "txtSOBRENOME",FILTER_SANITIZE_STRING))
-	{
-		echo("Este sobrenome não é válido!");
-		exit;
-	}
+	if ($teste_CPF[0] == false) { exit; }
+	if ($teste_NOME[0] == false) { exit; }
+	if ($teste_SOBRENOME[0] == false) { exit; }
+	if ($teste_EMAIL[0] == false) { exit; }
+	if ($teste_TELEFONE[0] == false) { exit; }
+	if ($teste_DATA_NASCIMENTO[0] == false) { exit; }
 
-	if(!filter_input(INPUT_POST, "txtCPF",FILTER_SANITIZE_STRING))
-	{
-		echo("Este CPF não é válido!");
-		exit;
-	}
-
-	if(!filter_input(INPUT_POST, "txtEMAIL",FILTER_SANITIZE_STRING))
-	{
-		echo("Este e-mail não é válido!");
-		exit;
-	}
-
-	if(!filter_input(INPUT_POST, "txtTELEFONE",FILTER_SANITIZE_STRING))
-	{
-		echo("Este telefone não é válido!");
-		exit;
-	}
-
-	if(!filter_input(INPUT_POST, "txtDATA_NASCIMENTO",FILTER_SANITIZE_STRING))
-	{
-		echo("Este data de nascimento não é válido!");
-		exit;
-	}
-
-	$txtNOME = filter_input(INPUT_POST, "txtNOME",FILTER_SANITIZE_STRING);
-	$txtSOBRENOME = filter_input(INPUT_POST, "txtSOBRENOME",FILTER_SANITIZE_STRING);
-	$txtCPF = filter_input(INPUT_POST, "txtCPF",FILTER_SANITIZE_STRING);
-	$txtEMAIL = filter_input(INPUT_POST, "txtEMAIL",FILTER_SANITIZE_STRING);
-	$txtTELEFONE = filter_input(INPUT_POST, "txtTELEFONE",FILTER_SANITIZE_STRING);
-	$txtDATA_NASCIMENTO = filter_input(INPUT_POST, "txtDATA_NASCIMENTO",FILTER_SANITIZE_STRING);
+	$txtNOME = $teste_NOME[1];
+	$txtSOBRENOME = $teste_SOBRENOME[1];
+	$txtCPF = $teste_CPF[1];
+	$txtEMAIL = $teste_EMAIL[1];
+	$txtTELEFONE = $teste_TELEFONE[1];
+	$txtDATA_NASCIMENTO = $teste_DATA_NASCIMENTO[1];
 
 
 	try {
