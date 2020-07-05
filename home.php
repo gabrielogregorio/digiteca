@@ -1,1 +1,7 @@
-<h1>Olá, eu sou o home.php e serei a tela de início do sistema</h1>
+<?php include('layout/header.html');?>
+
+
+<h1>Olá,eu sou um Home</h1>
+
+
+<?php include('layout/footer.html');?>
