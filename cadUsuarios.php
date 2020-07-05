@@ -1,7 +1,8 @@
 <?php include('layout/header.html');?>
 <?php include('layout/navbar.php'); ?>
 
-<div class="page-container"  class="mx-auto">
+<div class="container"  class="mx-auto">
+
     <div class="content-wrap">
         <div class="card card-header" id="card-style">
 
@@ -44,6 +45,7 @@
 			</form>
 		</div>
 	</div>
+
 </div>
 
 <?php include('layout/footer.html');?>
