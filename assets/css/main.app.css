@@ -4,6 +4,12 @@ html, body {
     height: 100%;
 }
 
+#card-style {
+    width: 36rem;
+    height: 42rem; 
+    border-radius: 15px;
+}
+
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
