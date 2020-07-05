@@ -1,16 +1,29 @@
-/* Este arquivo é do Bootstrap e serve exclusivamente para algumas configurações do formulario de login */
-
 html, body {
-    margin: 0;
-    padding: 0;
     height: 100%;
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: table;
     align-items: center;
     padding-top: 40px;
     padding-bottom: 40px;
     background-color: #f5f5f5;
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.content-wrap {
+    text-align: left;
+    display: inline-block;
 }
 
 .form-signin {
