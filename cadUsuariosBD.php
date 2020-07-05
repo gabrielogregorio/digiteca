@@ -1,25 +1,17 @@
 <?php
 
-    //iniciando um sessão
-    session_start();
+     include('seguranca/seguranca.php');
 
-    // Se o administrador não estava logado
-     if((isset($_SESSION["LOGIN"]) == false) and (isset($_SESSION["SENHA"]) == false))
-        {
+    
+    session_start(); //iniciando um sessão
+    echo $_SESSION["txtLOGIN"];
 
-        //remover todas as variável de sessão
-        session_unset();
-
-        //destruir a sessão
-        session_destroy();
-
-        // Volta para a página de index.php
-        header("location:index.php");
-        exit;
+    if (administrador_logado() == false){
+       header("location:index.php");
+       exit;
     }
 
     require_once("conexao/conexao.php");
-
 
 	if(!filter_input(INPUT_POST, "txtNOME",FILTER_SANITIZE_STRING))
 	{
