@@ -1,19 +1,38 @@
 /* Importacao de fontes direto no arquivo CSS */
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap');
 
-html, body {
-    margin: 0;
-    padding:0;
-    height: 100%;
-}
-
 /* Adiciona uma cor diferente ao passar o mouse no menu de usuarios */
 .dropdown-menu a:hover {
     color: #FFF;
     background-color: #35B9AB;
 }
 
-#digiteca {
-    font-size: 1.5em;
-    font-family: 'Karla', sans-serif;
+#menu-login {
+    background-color: #262E45;
+    color: #FFF;
+    padding: 20px;
+}
+
+#menu-login h1 {
+    display: inline;
+    text-align: center;
+
+}
+
+#menu-login ul {
+    list-style: none;
+    text-align: right;
+    align-items: center;
+}
+
+#menu-login li {
+    display: inline;
+    
+}
+
+#menu-login a{
+    color: #FFF;
+    text-decoration: none;
+    padding-right: 10px;
+    font-size: 25px;
 }
