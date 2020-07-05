@@ -1,27 +1,39 @@
-<!-- Tela de Login -->
+<!-- Formulario de Login -->
 
-<div class="dropdown-menu">
-    <form class="px-4 py-3">
-        <div class="form-group">
-            <label for="txtEmail">Endereço de email</label>
-            <input type="email" class="form-control" id="txtEmail" placeholder="email@examplo.com">
-        </div>
-        <div class="form-group">
-            <label for="txtSenha">Password</label>
-            <input type="password" class="form-control" id="txtSenha" placeholder="Senha">
-        </div>
-        <div class="form-group">
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                <label class="form-check-label" for="dropdownCheck">
-                    Lembrar-me
-                </label>
+<?php include('header.html'); ?>
+
+    <div class="container" id="caixa">
+        <div class="card" id="borda">
+            <div class="card-header" id="borda">
+                <form class="form-signin">
+                    <div class="text-center mb-4">
+                        <img class="mb-4" src="/assets/images/sign-in.png" alt="Digiteca" width="128" height="128">
+
+                        <div class="alert alert-danger" role="alert">
+                            Acesso permitido somente para Administradores
+                        </div>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input type="email" id="loginEmail" class="form-control" placeholder="Email" required autofocus>
+                        <label for="loginEmail">Email</label>
+                    </div>
+
+                    <div class="form-label-group">
+                        <input type="password" id="loginSenha" class="form-control" placeholder="Senha" required>
+                        <label for="loginSenha">Senha</label>
+                    </div>
+
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Lembrar-me
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                    <p class="mt-5 mb-3 text-muted text-center">Copyright &copy; DIGITECA <?php echo date('Y')?></p>
+                </form>
             </div>
         </div>
-        
-        <button type="submit" class="btn btn-primary">Log in</button>
-    </form>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Não possui uma conta? Cadastre-se</a>
-    <a class="dropdown-item" href="#">Esqueceu sua senha?</a>
-</div>
+    </div>
+
+<?php include('footer.html'); ?>
