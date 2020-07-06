@@ -37,6 +37,19 @@
                     <a class="dropdown-item" href="visUsuarios.php">Visualizar Usuários</a>
               </div>
             </li>
+
+
+            <li class="nav-item dropdown active" >
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Emprestimos
+                </a>
+                <div class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="cadEmprestimos.php">Emprestar um livro</a>
+                    <a class="dropdown-item" href="visEmprestimos.php">Visualizar Livros Emprestados</a>
+              </div>
+            </li>
+
+
         </ul>
     </div>
 </nav>
