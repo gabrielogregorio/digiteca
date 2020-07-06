@@ -1,15 +1,66 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="utf-8">
-    <title>Livros</title>
+<?php include('layout/header.html'); ?>
+<?php include('layout/navbar.php'); ?>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" /> 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-</head>
-<body>
+	<div class="container mx-auto mt-4">
 
-	<?php 
-        include("home.php");
-    ?>
-<body>    
+		<div class="alert alert-primary text-center">
+			<h1>Cadastro de Livros</h1>		
+		</div>
+		
+			
+			<form action="cadLivrosBD.php" method="post">
+
+				<div class="form-group">
+					<label>Título do Livro</label>
+					<input type="text" class="form-control" name="titulolivro" placeholder="Informe o título do livro">
+				</div>
+
+				<div class="form-group">
+					<label>Gênero do livro</label>
+					<input type="text" class="form-control" name="generolivro" placeholder="Informe o gênero do livro">
+				</div>
+
+				<div class="form-group">
+					<label>Autor</label>
+					<input type="text" class="form-control" name="autorlivro" placeholder="Informe o autor do livro">
+				</div>
+
+				<div class="form-group">
+					<label>Editora</label>
+					<input type="text" class="form-control" name="editoralivro" placeholder="Informe a editora do livro">
+				</div>
+
+				<div class="form-group">
+					<label>Ano de Publicação</label>
+					<input type="text" class="form-control" name="anolivro" placeholder="Informe o ano de publicação do livro">
+				</div>
+
+				<div class="form-group">
+					<label>ISBN</label>
+					<input type="text" class="form-control" name="isbnlivro" placeholder="Informe o código ISBN do livro">
+				</div>
+
+				<div>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar livro</button>
+				</div>
+			
+			</form>
+
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php include('layout/footer.html'); ?>

@@ -12,21 +12,29 @@
                 <a class="nav-link" href="home.php">Home</a>
             </li>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="livros.php">Livros</a>
-            </li>
-
-            <li class="nav-item active">
+             <li class="nav-item active">
                 <a class="nav-link" href="layout/login.php">Login</a>
             </li>
+
+            <li class="nav-item dropdown active" >
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Livros
+                </a>
+                <div class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="cadLivros.php">Cadastrar Livros</a>
+                    <a class="dropdown-item" href="visLivros.php">Visualizar Livros</a>
+              </div>
+            </li>
+
+           
 
             <li class="nav-item dropdown active" >
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Usuários
                 </a>
                 <div class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="cadUsuarios.php">Cadastrar</a>
-                    <a class="dropdown-item" href="visUsuarios.php">Visualizar</a>
+                    <a class="dropdown-item" href="cadUsuarios.php">Cadastrar Usuários</a>
+                    <a class="dropdown-item" href="visUsuarios.php">Visualizar Usuários</a>
               </div>
             </li>
         </ul>
