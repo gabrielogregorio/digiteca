@@ -18,6 +18,7 @@
         $mes = strval($mes);
         $ano = strval($ano);
 
-		print_r("$ano$mes$dia" );
+		return "$ano$mes$dia" ;
 	}
+
 ?>

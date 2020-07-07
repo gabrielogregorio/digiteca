@@ -55,7 +55,7 @@
 			  <div class="form-group">
 			    <label >Data do Empréstimo</label>
 
-			  <input class="form-control" id="data_emprestimo" name= "txtDATA_EMPRESTADO" type="text" value="<?php obter_data_dd_mm_yyyy() ?>"> 
+			  <input class="form-control" id="data_emprestimo" name= "txtDATA_EMPRESTADO" type="text" value="<?php print_r obter_data_dd_mm_yyyy() ?>"> 
 			</div>
 
 			  <div class="form-group">
