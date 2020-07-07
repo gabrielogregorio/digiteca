@@ -1,9 +1,8 @@
  <?php
-
-    include('../seguranca/seguranca.php');
-    
+   
     session_start(); //iniciando um sessão
 
+    include('../seguranca/seguranca.php');
     require_once("../conexao/conexao.php");
 
     $teste_SenhaLogin = campo_e_valido("txtSenhaLogin", "Senha");
@@ -14,10 +13,6 @@
 
 	$txtSenhaLogin = $teste_SenhaLogin[1];
 	$txtEmailLogin = $teste_EmailLogin[1];
-
-	print_r("$txtSenhaLogin");
-	print_r("$txtEmailLogin");
-
 
 	try {
 

@@ -1,14 +1,13 @@
 <?php 
+    session_start();
     include('seguranca/seguranca.php');
     
-    session_start();
 
     if (administrador_logado() == false){
        header("location:index.php");
        exit;
     }
  ?>
-
 
 <?php include('layout/header.html');?>
 <?php include('layout/navbar.php'); ?>

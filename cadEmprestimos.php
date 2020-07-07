@@ -9,16 +9,7 @@
     }
  ?>
  
-<?php 
-    //include('seguranca/seguranca.php');
-    
-    //session_start();
 
-    //if (administrador_logado() == false){
-      // header("location:index.php");
-       //exit;
-    //}
- ?>
 
 <?php include('layout/header.html');?>
 <?php include('layout/navbar.php'); ?>
@@ -27,36 +18,11 @@
 
 	<div class="container mx-auto mt-4">
 
-
         	<div class="alert alert-info" role="alert">
 				Emprestar
 			</div>
 
 			<form action="cadEmprestimosBD.php" method="post">
-
-                <!--
-			    <div class="form-group">
-			      <label>Livro</label>
- 			      <select name="txtLIVRO_ISBN" class="form-control">
-
-					<php
-						require_once("conexao/conexao.php");
-
-						$select = $conexao->query("SELECT TITULO, ISBN FROM LIVROS ORDER BY TITULO");
-						$resultado = $select->fetchAll();
-
-						if($resultado)
-						{
-						     foreach ($resultado as $linha) 
-						     {
-					?>
-
-    			        <option value="<php echo $linha["ISBN"];?>"><php echo 	$linha["TITULO"];?></option>
-					<php }} ?>
-
-			      </select>
-			    </div>-->
-
 
 			  <div class="form-group">
 			    <label>ISBN</label>
@@ -68,11 +34,6 @@
 			    <label>CPF</label>
 			    <input type="text" class="form-control" name="txtCPF_PESSOA" placeholder="Informe o CPF do usuário" id="cpf_usuario" onblur="">
 			  </div>
-
-			  <!--<div class="form-group">
-			    <label>Nome</label>
-			  <input class="form-control" id="nome_usuario" type="text" placeholder="" disabled>
-			</div>-->
 
 			  <div class="form-group">
 			    <label >Data do Empréstimo</label>
@@ -86,8 +47,6 @@
 			</div>
 
 		  <button type="submit" class="btn btn-primary btn-lg btn-block">Emprestar</button>
-
-		  <!-- type="submit-->
 
 			</form>
 		</div>
