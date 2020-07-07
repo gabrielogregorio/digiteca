@@ -12,15 +12,6 @@
  
 <?php
 
-    include('seguranca/seguranca.php');
-    
-    //session_start(); //iniciando um sessão
-
-    //if (administrador_logado() == false){
-    //   header("location:index.php");
-    //   exit;
-    //}
-
     require_once("conexao/conexao.php");
 
 
