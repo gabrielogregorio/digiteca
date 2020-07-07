@@ -1,27 +1,22 @@
 <?php 
-    //include('seguranca/seguranca.php');
-    
-    //session_start();
+    include('layout/header.html');
+    include('layout/navbar.php');
 
-    //if (administrador_logado() == false){
-      // header("location:index.php");
-       //exit;
-    //}
+    include('seguranca/seguranca.php');
+    
+    session_start();
+
+    // if(administrador_logado() == false) {
+    //     header("location: index.php");
+    //     exit;
+    // }
  ?>
- 
-<?php include('layout/header.html'); ?>
-<?php include('layout/navbar.php'); ?>
 
     <div class="container">
 
-        <!-- Cabecalho da Pagina -->
-        <div class="" style="margin-top: 25rem;">
-            <div class="card-body">
-                <img src="assets/images/digiteca_.png" alt="Digiteca, Sistema de Biblioteca Digital">
-                <!-- <div class="text-center" style="font-size: 1.2em;">Página Inicial, ainda em construção</div> -->
-            </div>        
+		<div class="home">
+            <!-- <div title="Sistema de biblioteca Online">Sistema de biblioteca Online</div> -->
         </div>
 
-    </div>
 
 <?php include('layout/footer.html'); ?>

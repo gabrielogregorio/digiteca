@@ -11,6 +11,26 @@ html, body {
     text-align: center;
 }
 
+.home div {
+    margin-top: 8rem;
+    font-size: 50px;
+    text-align: center;
+}
+
+/* .home img {
+    width: 1920px;
+    height: 1080px;
+    text-align: center;
+} */
+
+.home {
+    height: 100%;
+    min-height: 800px;
+    background: url('../images/home.jpg') no-repeat 0 90px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
 .form-esqueci-minha-senha {
     margin-left: 8.3rem;
     text-decoration: none;
