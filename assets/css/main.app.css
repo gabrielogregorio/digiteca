@@ -24,18 +24,6 @@ html, body {
     left: 0;
 }
 
-/* Efeito de transparencia na imagem da pagina inicial */
-/* .home:before {
-    content: '';
-    position: absolute;
-    top: 5.5rem;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: .6; 
-} */
-
 .form-esqueci-minha-senha {
     margin-left: 8.3rem;
     text-decoration: none;
