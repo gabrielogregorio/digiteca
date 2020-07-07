@@ -2,10 +2,8 @@
 <?php include('layout/navbar.php'); ?>
 <?php include("recursos.php"); ?>
 
-
-
 <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Faça uma busca" aria-describedby="basic-addon1"> <button type="button" class="btn btn-info">Pesquisar</button>
+<input type="text" class="form-control" placeholder="Faça uma busca" aria-describedby="basic-addon1"> <button type="button" class="btn btn-info">Pesquisar</button>
 </div>
 
 <label class="custom-control-label" for="customCheckDisabled">Filtrar por</label>
@@ -18,15 +16,6 @@
   <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
   <label class="custom-control-label" for="customRadioInline2">Devolvidos</label>
 </div>
-
-
-
-
-
-
-
-
-
 
 
 <div class="form-group">

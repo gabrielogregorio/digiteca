@@ -5,6 +5,12 @@ html, body {
     height: 100%;
 }
 
+.form-cad-usuario {
+    padding: 100px 0 0 0;
+    position: relative;
+    text-align: center;
+}
+
 #card-style {
     width: 36rem;
     height: 42rem; 
