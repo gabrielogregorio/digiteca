@@ -44,7 +44,7 @@
             <div class="card-body">
                 
                 <!-- Aqui começa o nosso formulario -->
-                <form action="editCadLivrosBD.php" method="post">
+                <form action="exclCadLivrosBD.php" method="post">
 
                     <input type="hidden" name="id" value="<?php echo $id ?>">
 
@@ -104,8 +104,7 @@
                         value="<?php echo $linha['UNIDADES_DISPONIVEIS']; ?>" required>
 					</div>
 
-                    <button class="btn btn-secondary btn-lg" type="reset" onclick="history.go(-1)">Voltar</button>
-                    <button class="btn btn-primary btn-lg" type="submit">Salvar</button>
+                    <button class="btn btn-danger btn-lg btn-block" type="sumbit">Confirmar Exclusão</button>
 
                 </form>
 
@@ -114,21 +113,5 @@
         </div>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php include('layout/footer.html'); ?>

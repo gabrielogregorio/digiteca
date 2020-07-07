@@ -81,12 +81,6 @@
 					<button type="submit" class="btn btn-primary btn-lg">Salvar</button>
 
 				</form>
-
-				<div class="form-group">
-					<div class="form-group">
-                    	
-                	</div>
-				</div>
 		</div>
 
 	</div>
