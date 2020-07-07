@@ -1,4 +1,16 @@
 <!-- Formulario de Login -->
+<?php
+
+    //remover todas as variável de sessão
+    session_start();
+
+    //iniciando um sessão
+    session_unset();
+
+    //destruir a sessão
+    session_destroy();
+?>
+
 
 <?php include('header.html'); ?>
 
