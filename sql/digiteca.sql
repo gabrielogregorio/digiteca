@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 07/07/2020 às 05:46
+-- Tempo de geração: 08/07/2020 às 01:10
 -- Versão do servidor: 10.4.11-MariaDB
 -- Versão do PHP: 7.4.6
 
@@ -64,11 +64,18 @@ INSERT INTO `EMPRESTIMO` (`ID`, `LIVRO_ISBN`, `CPF_PESSOA`, `DATA_EMPRESTADO`, `
 (9, '7234165353453', '63643107021', '2020-07-04', 5, 'DEVOLVIDO'),
 (10, '7533746477234', '58515540029', '2020-07-03', 5, 'NÃO DEVOLVIDO'),
 (11, '1231231244735', '24573258035', '2020-07-03', 5, 'DEVOLVIDO'),
-(12, '1231231244735', '05839927066', '2020-07-02', 5, 'NÃO DEVOLVIDO'),
+(12, '1231231244735', '05839927066', '2020-07-02', 5, 'DEVOLVIDO'),
 (13, '9802345257834', '05839927066', '2020-06-27', 2, 'DEVOLVIDO'),
 (14, '9802345257834', '24573258035', '2020-06-26', 14, 'DEVOLVIDO'),
-(15, '7234165353453', '24573258035', '2020-06-25', 7, 'NÃO DEVOLVIDO'),
-(16, '1231231244735', '58515540029', '2020-06-24', 9, 'DEVOLVIDO');
+(15, '7234165353453', '24573258035', '2020-06-25', 7, 'DEVOLVIDO'),
+(16, '1231231244735', '58515540029', '2020-06-24', 9, 'DEVOLVIDO'),
+(17, '9802345257834', '58515540029', '2020-07-07', 10, 'DEVOLVIDO'),
+(18, '1231231244735', '58515540029', '2020-07-07', 2, 'DEVOLVIDO'),
+(20, '1231231244735', '24573258035', '2020-07-07', 2, 'A DEVOLVER'),
+(21, '1231231244735', '58515540029', '2020-07-07', 1, 'A DEVOLVER'),
+(22, '1231231244735', '58515540029', '2020-07-07', 4, 'A DEVOLVER'),
+(23, '1231231244735', '58515540029', '2020-07-08', 2, 'DEVOLVIDO'),
+(24, '7234165353453', '49521803010', '2020-07-08', 3, 'DEVOLVIDO');
 
 -- --------------------------------------------------------
 
@@ -93,6 +100,7 @@ CREATE TABLE `LIVROS` (
 
 INSERT INTO `LIVROS` (`ISBN`, `AUTOR`, `TITULO`, `DESCRICAO`, `GENERO`, `UNIDADES_DISPONIVEIS`, `EDITORA`, `ANO_PUBLICACAO`) VALUES
 ('1231231244735', 'josé de alencar', 'O Guarani', 'Em uma fazenda no interior do Rio de Janeiro, moram D. Antônio de Mariz e sua família, formada pela esposa D. Lauriana, o filho D. Diogo e a filha Cecília. A casa abriga ainda a mestiça Isabel (na verdade, filha bastarda de D. Antônio), apaixonada pelo moço Álvaro, que, no entanto, só tinha olhos para Cecília. O índio Peri, que salvou certa vez Cecília de ser atingida por uma pedra, permaneceu no lugar a pedido da moça, morando em uma cabana. Peri passa a se dedicar inteiramente à satisfação de todas as vontades de Cecília, a quem chama simplesmente de Ceci. Acidentalmente, D. Diogo mata uma índia aimoré. Como vingança, a família', 'Romantismo', 2, 'BRASILEIRA', '2001-07-23'),
+('212321', 'd', 'd', 'd', 'd', 2, 'd', '2020-02-01'),
 ('7234165353453', 'Júlio Verne', 'Vinte Mil Léguas Submarinas', 'Em 1866, o Professor Pierre M. Aronnax e seu assistente Conseil, que estão em São Francisco para pesquisar relatos de um monstro marinho gigante atacando navios no Oceano Pacífico, são convidados a participar de uma expedição para procurar a criatura. Durante a busca, eles e o arpoador Ned Land são lançados ao mar durante um ataque, acabando por descobrir que o monstro é na verdade um submarino pilotado pelo brilhante, mas assombrado, Capitão Nemo.', 'Aventura', 12, 'Reeditora', '2015-09-08'),
 ('7533746477234', 'Mário de Andrade', 'Macunaíma', 'Macunaíma e a renovação da linguagem literária. Publicado em 1928, numa tiragem de apenas oitocentos exemplares (Mário de Andrade não conseguira editor), Macunaíma, o herói sem nenhum caráter, é uma das obras pilares da cultura brasileira.', 'Drama', 20, 'Brasil edidocs', '2019-01-02'),
 ('9802345257834', 'josé de alencar', 'Iracema', 'Iracema, ícone do indianismo romântico, teve sua primeira publicação em 1865 e figura até hoje entre as principais obras literárias brasileiras. De autoria de José de Alencar, cujo projeto artístico envolvia a consolidação de uma cultura nacional, Iracema é uma narrativa de fundação, ou seja, seu eixo temático principal versa sobre a criação de uma identidade cultural, um texto que se orienta para representar a origem da nacionalidade brasileira.', 'Romantismo', 5, 'RENOVAR', '1990-02-01');
@@ -155,7 +163,7 @@ ALTER TABLE `USUARIOS`
 -- AUTO_INCREMENT de tabela `EMPRESTIMO`
 --
 ALTER TABLE `EMPRESTIMO`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Restrições para dumps de tabelas
