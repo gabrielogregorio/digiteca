@@ -24,11 +24,18 @@ html, body {
 } */
 
 .home {
-    height: 100%;
-    min-height: 800px;
-    background: url('../images/home.jpg') no-repeat 0 90px;
-    text-align: center;
-    color: #FFFFFF;
+    background: url('../images/biblioteca_.png') no-repeat center 0; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    width: 100%;
+    height: 94.6%;
+    min-height: 360px;
+    /* position: relative; */
+    top: 0;
+    left: 0;
 }
 
 .form-esqueci-minha-senha {
