@@ -2,9 +2,13 @@
 <?php include('layout/navbar.php'); ?>
 <?php include("recursos.php"); ?>
 
-<div class="container"  class="mx-auto"> 
-    <div class="content-wrap">
-        <div class="card card-header" id="card-style">
+
+	<div class="container mx-auto mt-4">
+
+
+        	<div class="alert alert-info" role="alert">
+				Emprestar
+			</div>
 
 			<form action="cadEmprestimosBD.php" method="post">
 
@@ -59,14 +63,12 @@
 			  <input class="form-control" name="txtTEMPO_EMPRESTIMO" type="text" placeholder="Quantos dias o livro ficará emprestado">
 			</div>
 
+		  <button type="submit" class="btn btn-primary btn-lg btn-block">Emprestar</button>
 
-		  <button type="button" class="btn btn-danger" onclick="history.go(-1)">Cancelar</button>
-		  <button type="submit" class="btn btn-success" >Emprestar</button>
 		  <!-- type="submit-->
 
 			</form>
 		</div>
-	</div>
-</div>
+
 
 <?php include('layout/footer.html');?>
