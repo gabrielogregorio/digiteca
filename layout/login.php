@@ -25,9 +25,16 @@
                     
                     <div class="checkbox mb-3">
                         <label>
-                            <input type="checkbox" value="remember-me"> Lembrar-me
+                            <input type="checkbox" value="lembrar-me"> Lembrar-me
+                        </label>
+                        <label class="form-esqueci-minha-senha">
+                            <a href="#">Esqueci minha senha</a>
                         </label>
                     </div>
+
+        
+
+
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
                     <p class="mt-5 mb-3 text-muted text-center">Copyright &copy; DIGITECA <?php echo date('Y')?></p>
                 </form>

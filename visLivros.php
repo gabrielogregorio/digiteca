@@ -1,19 +1,18 @@
-<?php 
-    //include('seguranca/seguranca.php');
-    
-    //session_start();
+<?php
+    include('layout/header.html');
+    include('layout/navbar.php');
+    include('seguranca/seguranca.php');
 
-    //if (administrador_logado() == false){
-      // header("location:index.php");
-       //exit;
-    //}
+    session_start();
+
+    if(administrador_logado() == false) {
+        header("location:index.php");
+        exit;
+    }
  ?>
-
- <?php include('layout/header.html'); ?>
-<?php include('layout/navbar.php'); ?>
-
+    
     <div class="container">
-
+    
         <!-- Cabecalho da Pagina -->
         <div class="card text-white bg-primary mb-2" style="margin-top: 10rem;">
             <div class="card-body">
@@ -47,26 +46,20 @@
                         </thead>
 
                         <tbody>
-                            <?php
-                                foreach ($resultado as $linha) {
-                            ?>
-                                <tr>
-                                    <td><?php echo $linha["ID"]; ?></td>
-                                    <td><?php echo $linha["ISBN"]; ?></td>
-                                    <td><?php echo $linha["TITULO"]; ?></td>
-                                    <td><?php echo $linha["EDITORA"]; ?></td>
-                                    <td><a href="altLivros.php?id=<?php echo "$linha[ID];" ?>"><img src="assets/images/editar.png" widtH="36"></a></td>
-                                    <td><a href="excLivros.php?id=<?php echo "$linha[ID];" ?>"><img src="assets/images/excluir.png" width="36"></a></td>
-                                </tr>
-                            <?php    
-                                }
-                            ?>
+                        <?php   foreach ($resultado as $linha) {    ?>
+                                    <tr>
+                                        <td><?php echo $linha["ID"]; ?></td>
+                                        <td><?php echo $linha["ISBN"]; ?></td>
+                                        <td><?php echo $linha["TITULO"]; ?></td>
+                                        <td><?php echo $linha["EDITORA"]; ?></td>
+                                        <td><a href="altLivros.php?id=<?php echo "$linha[ID];" ?>"><img src="assets/images/editar.png" widtH="36"></a></td>
+                                        <td><a href="excLivros.php?id=<?php echo "$linha[ID];" ?>"><img src="assets/images/excluir.png" width="36"></a></td>
+                                    </tr>
+                        <?php   }   ?>
                         </tbody>      
                     </table>
-            <?php 
-            }
-            ?> 
-        </div>
+    <?php   }   ?> 
+                </div>
     </div>
 
 <?php include('layout/footer.html'); ?>

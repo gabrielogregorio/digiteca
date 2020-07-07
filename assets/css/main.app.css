@@ -11,6 +11,20 @@ html, body {
     text-align: center;
 }
 
+.form-esqueci-minha-senha {
+    margin-left: 8.3rem;
+    text-decoration: none;
+}
+
+.form-esqueci-minha-senha a {
+    text-decoration: none !important;
+}
+
+.form-esqueci-minha-senha a:hover {
+    color: #6DA741;
+    text-decoration: none;
+}
+
 #card-style {
     width: 36rem;
     height: 42rem; 
