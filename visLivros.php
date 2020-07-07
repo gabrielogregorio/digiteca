@@ -4,58 +4,58 @@
     <div class="container">
 
         <!-- Cabecalho da Pagina -->
-        <div class="card text-white bg-primary mb-2" style="margin-top: 2.5rem;">
+        <div class="card text-white bg-primary mb-2" style="margin-top: 10rem;">
             <div class="card-body">
                 <div class="text-center" style="font-size: 1.2em;">Visualizar Livros Cadastrados</div>
             </div>        
         </div>
 
-        <!-- Aqui comeca a nossa tabela -->
-        <div class="table table-responsive-sm">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>ID</th> 
-                        <th>ISBN</th>
-                        <th>Titulo</th>
-                        <th>Editora</th>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                    <?php 
-                        require_once('conexao/conexao.php');
+        <?php 
+            require_once('conexao/conexao.php');
 
-                        $sql = "SELECT * FROM LIVROS";
+            $comandoSQL = "SELECT * FROM LIVROS";
 
-                        $sqlResposta = mysqli_query($conexao, $sql);
-                        
-                        $sqlContador = mysqli_num_rows($sqlResposta);
+            $select = $conexao->query($comandoSQL);
 
-                        if ($sqlContador > 0) { 
-                        
-                            for($x = 0; $x < $sqlContador; $x++) {
-                            
-                            $dados = mysqli_fetch_assoc($sqlResposta); 
-                    ?>
-                    
+            $resultado = $select->fetchAll();
+
+            if($resultado) {
+        ?>
+                <!-- Aqui comeca a nossa tabela -->
+                <div class="table table-responsive-sm">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
                             <tr>
-                                <td><?php echo "$dados[ID]"; ?></td>
-                                <td><?php echo "$dados[ISBN]"; ?></td>
-                                <td><?php echo "$dados[EDITORA]"; ?></td>
-                                <td><a href="altLivros.php?id=<?php echo "$dados[ID];" ?>"><img src="assets/imgages/editar.png"></a></td>
-                                <td><a href="excLivros.php?id=<?php echo "$dados[ID];" ?>"><img src="assets/img/excluir.png"></a></td>
+                                <th scope="col">ID</th>
+                                <th scope="col">ISBN</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Editora</th>
+                                <th scope="col">Editar</th>
+                                <th scope="col">Excluir</th>
                             </tr>
-                    <?php 
-                            }
-                        } else {
-                            echo '<div class="alert-danger text-center p-2 rounded" role="alert"> Ops, não encontramos nenhum registro! </div>';
-                        }
-                    ?>            
-                </tbody>
-            </table>
+                        </thead>
+
+                        <tbody>
+                            <?php
+                                foreach ($resultado as $linha) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $linha["ID"]; ?></td>
+                                    <td><?php echo $linha["ISBN"]; ?></td>
+                                    <td><?php echo $linha["TITULO"]; ?></td>
+                                    <td><?php echo $linha["EDITORA"]; ?></td>
+                                    <td><a href="altLivros.php?id=<?php echo "$linha[ID];" ?>"><img src="assets/images/editar.png" widtH="36"></a></td>
+                                    <td><a href="excLivros.php?id=<?php echo "$linha[ID];" ?>"><img src="assets/images/excluir.png" width="36"></a></td>
+                                </tr>
+                            <?php    
+                                }
+                            ?>
+                        </tbody>      
+                    </table>
+            <?php 
+            }
+            ?> 
         </div>
-    
     </div>
 
 <?php include('layout/footer.html'); ?>

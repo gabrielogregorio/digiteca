@@ -20,7 +20,4 @@
 
 		print_r("$ano$mes$dia" );
 	}
-
-
-
 ?>
