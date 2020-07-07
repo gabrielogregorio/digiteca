@@ -11,12 +11,8 @@
          exit;
      }
  ?>
-
-    <div class="container">
-
-		<div class="home">
-            <!-- <div title="Sistema de biblioteca Online">Sistema de biblioteca Online</div> -->
-        </div>
-
+    <div class="home">
+    
+    </div>
 
 <?php include('layout/footer.html'); ?>
