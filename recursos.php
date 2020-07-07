@@ -1,3 +1,14 @@
+<?php 
+    include('seguranca/seguranca.php');
+    
+    session_start();
+
+    if (administrador_logado() == false){
+       header("location:index.php");
+       exit;
+    }
+ ?>
+
  <?php
 	function obter_data_dd_mm_yyyy(){
 		$today = getdate();

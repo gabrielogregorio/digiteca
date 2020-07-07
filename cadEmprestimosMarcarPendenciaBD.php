@@ -1,9 +1,7 @@
 <?php 
     include('seguranca/seguranca.php');
     
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
+    session_start();
     
     if (administrador_logado() == false){
        header("location:index.php");
