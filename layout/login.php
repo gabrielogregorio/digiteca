@@ -5,7 +5,8 @@
     <div class="page-container">
         <div class="content-wrap">
             <div class="card card-header" id="card-style">
-                <form class="form-signin">
+                <form class="form-signin" action="layout/loginDB.php" method="post">
+
                     <div class="text-center mb-4">
                         <img class="mb-4" src="http://localhost/digiteca/assets/images/digiteca_.png" alt="Digiteca" width="389" height="116">
                         <div class="alert alert-danger" role="alert">
@@ -14,12 +15,12 @@
                     </div>
 
                     <div class="form-label-group">
-                        <input type="email" id="loginEmail" class="form-control" placeholder="Email" required autofocus>
+                        <input type="email" name="txtEmailLogin" class="form-control" placeholder="Email" required autofocus>
                         <label for="loginEmail">Email</label>
                     </div>
 
                     <div class="form-label-group">
-                        <input type="password" id="loginSenha" class="form-control" placeholder="Senha" required>
+                        <input type="password" name="txtSenhaLogin" class="form-control" placeholder="Senha" required>
                         <label for="loginSenha">Senha</label>
                     </div>
                     

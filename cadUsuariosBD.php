@@ -62,6 +62,8 @@
 
 		if($comando->rowCount() > 0)
 		{
+			$_SESSION["txtLOGIN"] = true;
+		    $_SESSION["txtSENHA"] = true;
 			header('location:home.php');
 		}
 		else
