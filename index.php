@@ -10,7 +10,7 @@
   
     include('layout/header.html');
 
-    include('layout/login.php');
+    // include('layout/login.php');
 
     include('layout/footer.html');
 ?>
