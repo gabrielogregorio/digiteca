@@ -48,7 +48,7 @@
 
 		if($comando->rowCount() > 0)
 		{
-			header('location:home.php');
+			header('location:visEmprestimos.php');
 		}
 		else
 		{

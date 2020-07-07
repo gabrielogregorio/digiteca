@@ -50,6 +50,7 @@
                  ON EMPRESTIMO.LIVRO_ISBN = LIVROS.ISBN
                  INNER JOIN USUARIOS
                  ON EMPRESTIMO.CPF_PESSOA = USUARIOS.CPF
+                 
                  GROUP BY EMPRESTIMO.DATA_EMPRESTADO");
 
 
