@@ -83,13 +83,8 @@
                     <?php
 
                        $DATA = $linha["DATA_EMPRESTADO"];
-
-
-
-                       $Date = "$DATA";
                        $TEMPO_EMPRESTIMO = $linha["TEMPO_EMPRESTIMO"];
                        $DATA_VENCIMENTO = date('Ymd', strtotime($DATA. " + $TEMPO_EMPRESTIMO days"));
-
 
 
                        if ($linha["STATUS_LIVRO"] == "NÃO DEVOLVIDO") {

@@ -1,3 +1,25 @@
+<?php 
+    //include('seguranca/seguranca.php');
+    
+    //session_start();
+
+    //if (administrador_logado() == false){
+      // header("location:index.php");
+       //exit;
+    //}
+ ?>
+ 
+<?php 
+    //include('seguranca/seguranca.php');
+    
+    //session_start();
+
+    //if (administrador_logado() == false){
+      // header("location:index.php");
+       //exit;
+    //}
+ ?>
+
 <?php include('layout/header.html');?>
 <?php include('layout/navbar.php'); ?>
 <?php include("recursos.php"); ?>
@@ -55,7 +77,7 @@
 			  <div class="form-group">
 			    <label >Data do Empréstimo</label>
 
-			  <input class="form-control" id="data_emprestimo" name= "txtDATA_EMPRESTADO" type="text" value="<?php print_r obter_data_dd_mm_yyyy() ?>"> 
+			  <input class="form-control" id="data_emprestimo" name= "txtDATA_EMPRESTADO" type="text" value="<?php echo obter_data_dd_mm_yyyy(); ?>"> 
 			</div>
 
 			  <div class="form-group">
