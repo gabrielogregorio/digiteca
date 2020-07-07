@@ -1,4 +1,8 @@
 <?php 
+	
+	include('layout/header.html');
+	include('layout/navbar.php');
+
     include('seguranca/seguranca.php');
     
     session_start();
@@ -6,15 +10,11 @@
     if (administrador_logado() == false){
        header("location:index.php");
        exit;
-    }
+	}
+	
+	include("recursos.php");
+
  ?>
- 
-
-
-<?php include('layout/header.html');?>
-<?php include('layout/navbar.php'); ?>
-<?php include("recursos.php"); ?>
-
 
 	<div class="container mx-auto mt-4">
 
@@ -26,7 +26,7 @@
 
 			  <div class="form-group">
 			    <label>ISBN</label>
-			    <input type="text" class="form-control" name="txtLIVRO_ISBN" placeholder="Informe o ISBN do usuário" >
+			    <input type="text" class="form-control" name="txtLIVRO_ISBN" placeholder="Informe o ISBN do livro" >
 			  </div>
 
 
@@ -50,6 +50,5 @@
 
 			</form>
 		</div>
-
 
 <?php include('layout/footer.html');?>

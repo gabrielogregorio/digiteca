@@ -1,4 +1,8 @@
-<?php 
+<?php
+
+    include('layout/header.html');
+    include('layout/navbar.php');
+
     include('seguranca/seguranca.php');
     
     session_start();
@@ -7,12 +11,7 @@
        header("location:index.php");
        exit;
     }
- ?>
-
- <?php
-    include('layout/header.html');
-    include('layout/navbar.php');
-
+ 
     require_once("conexao/conexao.php");
 
     if(!filter_input(INPUT_GET, "id", FILTER_SANITIZE_STRING)) {
@@ -42,14 +41,6 @@
 
             </form>
         </div>
-
-
-
-
-
-
-
-
 
     </div>
 

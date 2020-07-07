@@ -6,11 +6,8 @@
     if (administrador_logado() == false){
        header("location:index.php");
        exit;
-    }
- ?>
-
- <?php
-
+	}
+	
     require_once("conexao/conexao.php");
 
     $teste_LIVRO_ISBN = campo_e_valido("txtLIVRO_ISBN", "Livro");

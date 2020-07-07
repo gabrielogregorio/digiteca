@@ -52,8 +52,8 @@
                                         <td><?php echo $linha["ISBN"]; ?></td>
                                         <td><?php echo $linha["TITULO"]; ?></td>
                                         <td><?php echo $linha["EDITORA"]; ?></td>
-                                        <td><a href="altLivros.php?id=<?php echo "$linha[ID];" ?>"><img src="assets/images/editar.png" widtH="36"></a></td>
-                                        <td><a href="excLivros.php?id=<?php echo "$linha[ID];" ?>"><img src="assets/images/excluir.png" width="36"></a></td>
+                                        <td><a href="editCadLivros.php?id=<?php echo "$linha[ID];" ?>"><img src="assets/images/editar.png" width="36"></a></td>
+                                        <td><a href="deleCadLivros.php?id=<?php echo "$linha[ID];" ?>"><img src="assets/images/excluir.png" width="36"></a></td>
                                     </tr>
                         <?php   }   ?>
                         </tbody>      
