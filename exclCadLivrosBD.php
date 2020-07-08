@@ -13,16 +13,27 @@
     
     $ISBN = filter_input(INPUT_POST, "ISBN", FILTER_SANITIZE_STRING);
 
-	$comando = $conexao->prepare("DELETE FROM LIVROS WHERE ISBN = :ISBN");
+    try {
+		$comando = $conexao->prepare("DELETE FROM LIVROS WHERE ISBN = :ISBN");
+		$comando->bindParam(":ISBN", $ISBN);
+		$comando->execute();
 
-	$comando->bindParam(":ISBN", $ISBN);
-	$comando->execute();
+		if($comando->rowCount() > 0) {
+			header("location: visLivros.php");
 
-	if($comando->rowCount() > 0) {
-		header("location: visLivros.php");
-	} else {
-		echo "Erro ao executar o comando";
-	}
+		} else {
+            $mensagem_erro = "Nenhuma informação atualizada!";
+            $url = "location: exclCadLivros.php?ISBN=$ISBN&mensagem_erro=$mensagem_erro";
+            header($url);
+		}
+
+    } catch (PDOException $e) {
+    	$mensagem_erro = $e->getMessage();
+        $url = "location: exclCadLivros.php?ISBN=$ISBN&mensagem_erro=$mensagem_erro";
+        header($url);
+    }
+
+
 
 	$conexao = null;
 ?>

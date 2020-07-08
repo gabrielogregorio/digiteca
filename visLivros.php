@@ -1,6 +1,4 @@
 <?php
-    include('layout/header.html');
-    include('layout/navbar.php');
     include('seguranca/seguranca.php');
     
     session_start();
@@ -10,6 +8,9 @@
     }
 
  ?>
+
+<?php include('layout/header.html');?>
+<?php include('layout/navbar.php'); ?>
     
     <div class="container">
     

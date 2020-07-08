@@ -43,14 +43,20 @@
       <?php
          require_once("conexao/conexao.php");
 
+
+
+
+
+
          if (isset($_GET["search"]) == false){
-             $select = $conexao->query("SELECT EMPRESTIMO.ID, EMPRESTIMO.STATUS_LIVRO, USUARIOS.NOME, EMPRESTIMO.DATA_EMPRESTADO, EMPRESTIMO.TEMPO_EMPRESTIMO, LIVROS.TITULO
-                 FROM EMPRESTIMO
-                 INNER JOIN LIVROS
-                 ON EMPRESTIMO.LIVRO_ISBN = LIVROS.ISBN
-                 INNER JOIN USUARIOS
-                 ON EMPRESTIMO.CPF_PESSOA = USUARIOS.CPF
-                 GROUP BY EMPRESTIMO.DATA_EMPRESTADO");
+             $select = $conexao->query("SELECT EMPRESTIMO.ID, EMPRESTIMO.STATUS_LIVRO, USUARIOS.NOME, USUARIOS.SOBRENOME, EMPRESTIMO.DATA_EMPRESTADO, EMPRESTIMO.TEMPO_EMPRESTIMO, LIVROS.TITULO
+                FROM EMPRESTIMO
+                INNER JOIN LIVROS
+                ON LIVROS.ISBN = EMPRESTIMO.LIVRO_ISBN
+                INNER JOIN USUARIOS
+                ON USUARIOS.CPF = EMPRESTIMO.CPF_PESSOA
+                GROUP BY ID
+                ORDER BY EMPRESTIMO.DATA_EMPRESTADO DESC");
 
 
         } else {
@@ -63,7 +69,17 @@
             else if ($ITEM_PESQUISA == "CPF"){ $FILTRO_BUSCA = "USUARIOS.CPF"; }
             else if ($ITEM_PESQUISA == "ISBN"){ $FILTRO_BUSCA = "LIVROS.ISBN"; } 
 
-            $select = $conexao->query("SELECT EMPRESTIMO.ID, EMPRESTIMO.STATUS_LIVRO, USUARIOS.NOME, EMPRESTIMO.DATA_EMPRESTADO, EMPRESTIMO.TEMPO_EMPRESTIMO, LIVROS.TITULO FROM EMPRESTIMO INNER JOIN LIVROS ON EMPRESTIMO.LIVRO_ISBN = LIVROS.ISBN INNER JOIN USUARIOS ON EMPRESTIMO.CPF_PESSOA = USUARIOS.CPF WHERE $FILTRO_BUSCA LIKE '%$ITEM_TIPO%' GROUP BY EMPRESTIMO.DATA_EMPRESTADO");
+
+            $select = $conexao->query("SELECT EMPRESTIMO.ID, EMPRESTIMO.STATUS_LIVRO, USUARIOS.NOME, USUARIOS.SOBRENOME, EMPRESTIMO.DATA_EMPRESTADO, EMPRESTIMO.TEMPO_EMPRESTIMO, LIVROS.TITULO
+              FROM EMPRESTIMO
+              INNER JOIN LIVROS
+              ON LIVROS.ISBN = EMPRESTIMO.LIVRO_ISBN
+              INNER JOIN USUARIOS
+              ON USUARIOS.CPF = EMPRESTIMO.CPF_PESSOA
+              WHERE $FILTRO_BUSCA LIKE '%$ITEM_TIPO%'
+              GROUP BY ID
+              ORDER BY EMPRESTIMO.DATA_EMPRESTADO DESC
+              ");
         }
          
         $resultado = $select->fetchAll();
@@ -77,14 +93,12 @@
               <div class="card">
                  <div class="card-body">
                     <h5 class="card-title"><?php echo $linha["TITULO"];?></h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Emprestado para o <a href="#"><?php echo $linha["NOME"]; ?></a></h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Emprestado para o <a href="#"><?php echo $linha["NOME"]; ?> <?php echo $linha["SOBRENOME"]; ?></a></h6>
 
                     <?php
-
                        $DATA = $linha["DATA_EMPRESTADO"];
                        $TEMPO_EMPRESTIMO = $linha["TEMPO_EMPRESTIMO"];
                        $DATA_VENCIMENTO = date('Ymd', strtotime($DATA. " + $TEMPO_EMPRESTIMO days"));
-
 
                        if ($linha["STATUS_LIVRO"] == "NÃO DEVOLVIDO") {
                         if ($DATA_VENCIMENTO < obter_data_dd_mm_yyyy()){
@@ -116,11 +130,7 @@
                               <button type=\"submit\" class=\"btn btn-$tipo_botao\">$texto_botao</button> 
                            </form>
                        ");
-
-
-
                     ?>
-
 
                  </div>
               </div>

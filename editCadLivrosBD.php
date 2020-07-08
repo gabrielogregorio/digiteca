@@ -1,6 +1,4 @@
 <?php  
-
-
     include('seguranca/seguranca.php');
     
     session_start();
@@ -8,8 +6,6 @@
         header("location: index.php");
         exit;
     }
-
-
 
  	require_once("conexao/conexao.php");
 
@@ -21,6 +17,7 @@
     $anoDePublicacao = $_POST["anoDePublicacao"];
     $codigoISBN = $_POST["codigoISBN"];
     $unidadesDisponiveis = $_POST["unidadesDisponiveis"];
+    $ISBN = $_POST["ISBN"];
 
     try {
         $comando = $conexao->prepare("UPDATE LIVROS SET 
@@ -35,21 +32,27 @@
             UNIDADES_DISPONIVEIS = '$unidadesDisponiveis' 
         
         WHERE 
-            ISBN = :codigoISBN;'
+            ISBN = :ISBN;'
         ");
 
         $comando->execute(array(
-			':codigoISBN' => $codigoISBN
+			':ISBN' => $ISBN
 		));
          
         if($comando->rowCount() > 0) {
             header('location: visLivros.php');
         } else {
-            echo "Ops, Erro ao gravar os dados";
+            $mensagem_erro = "Nenhuma informação atualizada!";
+            $url = "location: editCadLivros.php?ISBN=$ISBN&mensagem_erro=$mensagem_erro";
+
+            header($url);
         }
  
     } catch (PDOException $e) {
-        echo("Erro ao gravar a informação. \n\n".$e->getMessage());
+
+        $mensagem_erro = $e->getMessage();
+        $url = "location: editCadLivros.php?ISBN=$ISBN&mensagem_erro=$mensagem_erro";
+        header($url);
     }
  
     $conexao = null;

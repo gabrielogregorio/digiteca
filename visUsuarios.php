@@ -68,6 +68,7 @@
         {
             foreach ($resultado as $linha) 
             {
+              $CPF = $linha["CPF"];
   
             ?>
               <div class="card">
@@ -75,8 +76,15 @@
                     <h5 class="card-title"><?php echo $linha["NOME"]; echo " "; echo $linha["SOBRENOME"]; ?></h5>
                     <h6 class="card-subtitle mb-2 text-muted">CPF <?php echo $linha["CPF"]; ?></h6>
 
-                    <button type="reset" class="btn btn-secondary">Editar</button>
-                    <button type="submit" class="btn btn-danger">Excluir</button>
+                    <form action="editCadUsuarios.php" method="get">
+                      <input type="hidden" name="CPF" value="<?php echo $CPF?>">
+                        <button type="submit" class="btn btn-secondary">Editar</button>
+                    </form>
+
+                    <form action="exclCadUsuarios.php" method="get">
+                      <input type="hidden" name="CPF" value="<?php echo $CPF?>">
+                      <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
 
                  </div>
               </div>

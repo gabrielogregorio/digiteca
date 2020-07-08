@@ -2,30 +2,24 @@
 
     include('layout/header.html');
     include('layout/navbar.php');
-
     include('seguranca/seguranca.php');
     
     session_start();
 
     if(administrador_logado() == false) {
-
         header("location: index.php");
-        
         exit;
     }
 
     require_once("conexao/conexao.php");
 
     if(!filter_input(INPUT_GET, "ISBN", FILTER_SANITIZE_STRING)) {
-        
         echo "ISBN é inválido!";
 
     } else {
 
         $ISBN = filter_input(INPUT_GET, "ISBN", FILTER_SANITIZE_STRING);
-
-        $consulta = $conexao->query("SELECT * FROM LIVROS WHERE ISBN=$ISBN");
-
+        $consulta = $conexao->query("SELECT * FROM LIVROS WHERE ISBN='$ISBN'");
         $linha = $consulta->fetch(PDO::FETCH_ASSOC);
     }
 ?>
@@ -38,6 +32,14 @@
                 <div class="text-center" style="font-size: 1.2em;">Editar Livros Cadastrados</div>
             </div>        
         </div>
+
+        <?php 
+            if ( isset($_GET["mensagem_erro"]) == true ) {
+                $mensagem_erro = $_GET["mensagem_erro"];
+                print_r ("<div class=\"alert alert-danger\" role=\"alert\">Erro ao tentar executar atualização: $mensagem_erro</div>");
+            } 
+
+        ?>
 
         <div class="card bg-light">
 
@@ -65,9 +67,14 @@
                     <!-- Descrição -->
                     <div class="form-group mb-3">
                         <label for="descricaoDoLivro">Descrição</label>
-                        <input type="text" class="form-control" name="descricaoDoLivro"   
-                        value="<?php echo $linha["DESCRICAO"]; ?>" required>
+
+                         <textarea type="text" name="descricaoDoLivro" class="form-control" rows="3" required value="<?php echo $linha["DESCRICAO"]; ?>"><?php echo $linha["DESCRICAO"]; ?></textarea>
                     </div>
+
+
+
+
+
 
                     <!-- Gênero -->
                     <div class="form-group mb-3">
@@ -80,7 +87,7 @@
                     <div class="form-group mb-3">
                         <label for="nomeDaEditora">Editora</label>
                         <input type="text" class="form-control" name="nomeDaEditora"   
-                        value="<?php echo $linha["TITULO"]; ?>" required>
+                        value="<?php echo $linha["EDITORA"]; ?>" required>
                     </div>
                         
                     <!-- Ano de Publicação -->

@@ -44,7 +44,7 @@
 					<!-- Descrição -->
 					<div class="form-group mb-3">
 						<label for="descricaoDoLivro">Descrição</label>
-						<input type="text" class="form-control" name="descricaoDoLivro" placeholder="Descrição" required>
+						<textarea class="form-control" name="descricaoDoLivro" rows="3" required></textarea>
 					</div>
 
 					<!-- Gênero -->
@@ -62,7 +62,7 @@
 					<!-- Ano de Publicação -->
 					<div class="form-group mb-3">
 						<label for="anoDePublicacao">Ano de Publicação</label>
-						<input type="number" class="form-control" name="anoDePublicacao" placeholder="Publicação" required>
+						<input type="date" class="form-control" name="anoDePublicacao" placeholder="Publicação" required>
 					</div>
 
 					<!-- ISBN -->

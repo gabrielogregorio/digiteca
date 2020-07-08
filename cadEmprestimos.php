@@ -19,7 +19,7 @@
 	<div class="container mx-auto mt-4">
 
         	<div class="alert alert-info" role="alert">
-				Emprestar
+				Emprestar um Livro
 			</div>
 
 			<form action="cadEmprestimosBD.php" method="post">

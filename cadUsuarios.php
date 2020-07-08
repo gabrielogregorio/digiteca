@@ -44,7 +44,7 @@
 
 			  	<div class="form-group">
 			    	<label>Data de nascimento</label>
-			    	<input type="text" class="form-control" name="txtDATA_NASCIMENTO" placeholder="Informe a data de nascimento">
+			    	<input type="date" class="form-control" name="txtDATA_NASCIMENTO" placeholder="Informe a data de nascimento">
 				</div>
 				  
 			  <button type="button" class="btn btn-danger" onclick="history.go(-1)">Cancelar</button>
