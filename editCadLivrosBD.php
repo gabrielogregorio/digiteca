@@ -2,7 +2,6 @@
 
  	require_once("conexao/conexao.php");
 
-    $id = $_POST["id"];
  	$tituloDoLivro = $_POST["tituloDoLivro"];
  	$autorPrincipal = $_POST["autorPrincipal"];
  	$descricaoDoLivro = $_POST["descricaoDoLivro"];
@@ -25,11 +24,11 @@
             UNIDADES_DISPONIVEIS = '$unidadesDisponiveis' 
         
         WHERE 
-            ID = '$id' 
+            ISBN = :codigoISBN;'
         ");
 
         $comando->execute(array(
-			':id' => $id
+			':codigoISBN' => $codigoISBN
 		));
          
         if($comando->rowCount() > 0) {

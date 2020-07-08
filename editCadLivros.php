@@ -16,15 +16,15 @@
 
     require_once("conexao/conexao.php");
 
-    if(!filter_input(INPUT_GET, "id", FILTER_SANITIZE_STRING)) {
+    if(!filter_input(INPUT_GET, "ISBN", FILTER_SANITIZE_STRING)) {
         
-        echo "ID é inválido!";
+        echo "ISBN é inválido!";
 
     } else {
 
-        $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_STRING);
+        $ISBN = filter_input(INPUT_GET, "ISBN", FILTER_SANITIZE_STRING);
 
-        $consulta = $conexao->query("SELECT * FROM LIVROS WHERE id=$id");
+        $consulta = $conexao->query("SELECT * FROM LIVROS WHERE ISBN=$ISBN");
 
         $linha = $consulta->fetch(PDO::FETCH_ASSOC);
     }
@@ -46,62 +46,62 @@
                 <!-- Aqui começa o nosso formulario -->
                 <form action="editCadLivrosBD.php" method="post">
 
-                    <input type="hidden" name="id" value="<?php echo $id ?>">
+                    <input type="hidden" name="ISBN" value="<?php echo $ISBN ?>">
 
                     <!-- Título -->
                     <div class="form-group mb-3">
                         <label for="tituloCompleto">Título</label>
-                        <input type="text" class="form-control" name="tituloDoLivro" id="tituloDoLivro" placeholder="Título" 
-                        value="<?php echo $linha['TITULO']; ?>" required>
+                        <input type="text" class="form-control" name="tituloDoLivro"   
+                        value="<?php echo $linha["TITULO"]; ?>" required>
                     </div>
 
                     <!-- Autor -->
                     <div class="form-group mb-3">
                         <label for="autorPrincipal">Autor Principal</label>
-                        <input type="text" class="form-control" name="autorPrincipal" id="autorPrincipal" placeholder="Autor Principal" 
-                        value="<?php echo $linha['AUTOR']; ?>" required>
+                        <input type="text" class="form-control" name="autorPrincipal"  placeholder="Autor Principal" 
+                        value="<?php echo $linha["AUTOR"]; ?>" required>
                     </div>
 
                     <!-- Descrição -->
                     <div class="form-group mb-3">
                         <label for="descricaoDoLivro">Descrição</label>
-                        <input type="text" class="form-control" name="descricaoDoLivro" id="descricaoDoLivro" placeholder="Descrição" 
-                        value="<?php echo $linha['DESCRICAO']; ?>" required>
+                        <input type="text" class="form-control" name="descricaoDoLivro"   
+                        value="<?php echo $linha["DESCRICAO"]; ?>" required>
                     </div>
 
                     <!-- Gênero -->
                     <div class="form-group mb-3">
                         <label for="generoPrincipal">Gênero</label>
-                        <input type="text" class="form-control" name="generoPrincipal" id="generoPrincipal" placeholder="Gênero" 
-                        value="<?php echo $linha['GENERO']; ?>" required>
+                        <input type="text" class="form-control" name="generoPrincipal"   
+                        value="<?php echo $linha["GENERO"]; ?>" required>
                     </div>
 
                     <!-- Editora -->
                     <div class="form-group mb-3">
                         <label for="nomeDaEditora">Editora</label>
-                        <input type="text" class="form-control" name="nomeDaEditora" id="nomeDaEditora" placeholder="Editora" 
-                        value="<?php echo $linha['TITULO']; ?>" required>
+                        <input type="text" class="form-control" name="nomeDaEditora"   
+                        value="<?php echo $linha["TITULO"]; ?>" required>
                     </div>
                         
                     <!-- Ano de Publicação -->
                     <div class="form-group mb-3">
                         <label for="anoDePublicacao">Ano de Publicação</label>
-                        <input type="number" class="form-control" name="anoDePublicacao" id="anoDePublicacao" placeholder="Publicação" 
-                        value="<?php echo $linha['ANO_PUBLICACAO']; ?>" required>
+                        <input type="text" class="form-control" name="anoDePublicacao"  
+                        value="<?php echo $linha["ANO_PUBLICACAO"]; ?>">
                     </div>
 
                     <!-- ISBN -->
                     <div class="form-group mb-3">
                         <label for="codigoISBN">Código ISBN</label>
-                        <input type="text" class="form-control" name="codigoISBN" id="codigoISBN" placeholder="Código ISBN" 
-                        value="<?php echo $linha['ISBN']; ?>" required>
+                        <input type="text" class="form-control" name="codigoISBN"  placeholder="Código ISBN" 
+                        value="<?php echo $linha["ISBN"]; ?>" required>
                     </div>
 
                     <!-- Unidades Disponíveis -->
 					<div class="form-group mb-3">
 						<label for="unidadesDisponiveis">Unidades Disponiveis</label>
-						<input type="number" class="form-control" name="unidadesDisponiveis" id="unidadesDisponiveis" placeholder="Unidades Disponiveis" 
-                        value="<?php echo $linha['UNIDADES_DISPONIVEIS']; ?>" required>
+						<input type="number" class="form-control" name="unidadesDisponiveis"  placeholder="Unidades Disponiveis" 
+                        value="<?php echo $linha["UNIDADES_DISPONIVEIS"]; ?>" required>
 					</div>
 
                     <button class="btn btn-secondary btn-lg" type="reset" onclick="history.go(-1)">Voltar</button>

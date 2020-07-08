@@ -36,9 +36,9 @@
                     <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">ISBN</th>
+                                <!--<th scope="col">ID</th>-->
                                 <th scope="col">Título</th>
+                                <th scope="col">ISBN</th>
                                 <th scope="col">Editora</th>
                                 <th scope="col">Editar</th>
                                 <th scope="col">Excluir</th>
@@ -48,12 +48,22 @@
                         <tbody>
                         <?php   foreach ($resultado as $linha) {    ?>
                                     <tr>
-                                        <td><?php echo $linha["ID"]; ?></td>
-                                        <td><?php echo $linha["ISBN"]; ?></td>
+                                        <!--<td><php echo $linha["ID"]; ?></td>-->
                                         <td><?php echo $linha["TITULO"]; ?></td>
+                                        <td><?php echo $linha["ISBN"]; ?></td>
                                         <td><?php echo $linha["EDITORA"]; ?></td>
-                                        <td><a href="editCadLivros.php?id=<?php echo "$linha[ID]"; ?>"><img src="assets/images/editar.png" width="36"></a></td>
-                                        <td><a href="exclCadLivros.php?id=<?php echo "$linha[ID]"; ?>"><img src="assets/images/excluir.png" width="36"></a></td>
+                                        
+                                        <?php 
+                                            $ISBN = $linha["ISBN"];
+                                            $ISBN_LINK_EXCL = "editCadLivros.php?ISBN=$ISBN";
+                                            $ISBN_LINK_EDIT = "exclCadLivros.php?ISBN=$ISBN";
+
+
+
+                                        ?>
+
+                                        <td><a href="<?php echo $ISBN_LINK_EXCL; ?>"><img src="assets/images/editar.png" width="36"></a></td>
+                                        <td><a href="<?php echo $ISBN_LINK_EDIT; ?>"><img src="assets/images/excluir.png" width="36"></a></td>
                                     </tr>
                         <?php   }   ?>
                         </tbody>      
