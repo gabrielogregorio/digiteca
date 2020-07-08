@@ -2,13 +2,13 @@
     include('layout/header.html');
     include('layout/navbar.php');
     include('seguranca/seguranca.php');
-
+    
     session_start();
-
     if(administrador_logado() == false) {
-        header("location:index.php");
+        header("location: index.php");
         exit;
     }
+
  ?>
     
     <div class="container">

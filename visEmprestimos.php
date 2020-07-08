@@ -1,12 +1,12 @@
 <?php 
-    session_start();
     include('seguranca/seguranca.php');
     
-
-    if (administrador_logado() == false){
-       header("location:index.php");
-       exit;
+    session_start();
+    if(administrador_logado() == false) {
+        header("location: index.php");
+        exit;
     }
+
  ?>
 
 <?php include('layout/header.html');?>
@@ -14,7 +14,7 @@
 <?php include("recursos.php"); ?>
 
 <div class="container mx-auto mt-4">
-   <div class="alert alert-info" role="alert">Vsializar Emprestimos</div>
+   <div class="alert alert-info" role="alert">Visualizar Emprestimos</div>
 
         <form id="search-form" name="pesquisa" action="visEmprestimos.php" method="get">
 

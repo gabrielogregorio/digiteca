@@ -1,12 +1,12 @@
 <?php 
-    session_start();
     include('seguranca/seguranca.php');
     
-
-    if (administrador_logado() == false){
-       header("location:index.php");
-       exit;
+    session_start();
+    if(administrador_logado() == false) {
+        header("location: index.php");
+        exit;
     }
+
  ?>
 
 <?php include('layout/header.html');?>
@@ -74,6 +74,9 @@
                  <div class="card-body">
                     <h5 class="card-title"><?php echo $linha["NOME"]; echo " "; echo $linha["SOBRENOME"]; ?></h5>
                     <h6 class="card-subtitle mb-2 text-muted">CPF <?php echo $linha["CPF"]; ?></h6>
+
+                    <button type="reset" class="btn btn-secondary">Editar</button>
+                    <button type="submit" class="btn btn-danger">Excluir</button>
 
                  </div>
               </div>

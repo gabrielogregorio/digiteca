@@ -5,11 +5,11 @@
     include('seguranca/seguranca.php');
     
     session_start();
-
-    if (administrador_logado() == false){
-        header("location:index.php");
+    if(administrador_logado() == false) {
+        header("location: index.php");
         exit;
     }
+
     
     $ISBN = filter_input(INPUT_POST, "ISBN", FILTER_SANITIZE_STRING);
 
