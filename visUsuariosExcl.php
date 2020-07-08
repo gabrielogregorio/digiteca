@@ -20,9 +20,6 @@
     } else {
 
         $CPF = filter_input(INPUT_GET, "CPF", FILTER_SANITIZE_STRING);
-
-        echo "$CPF";
-
         $consulta = $conexao->query("SELECT * FROM USUARIOS WHERE CPF = '$CPF'");
         $linha = $consulta->fetch(PDO::FETCH_ASSOC);
     }
@@ -82,8 +79,8 @@
                     <!-- Ano de Publicação -->
                     <div class="form-group mb-3">
                         <label for="DATA_NASCIMENTO">DATA_NASCIMENTO</label>
-                        <input type="number" class="form-control" name="DATA_NASCIMENTO" placeholder="DATA_NASCIMENTO" 
-                        value="<?php echo $linha["ANO_PUBLICACAO"]; ?>">
+                        <input type="date" class="form-control" name="DATA_NASCIMENTO"
+                        value="<?php echo $linha["DATA_NASCIMENTO"]; ?>">
                     </div>
 
                     <button class="btn btn-danger btn-lg btn-block" type="sumbit">Confirmar Exclusão

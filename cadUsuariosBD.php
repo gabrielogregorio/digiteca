@@ -55,7 +55,7 @@
 		{
 			$_SESSION["txtLOGIN"] = true;
 		    $_SESSION["txtSENHA"] = true;
-			header('location:home.php');
+			header('location:visUsuarios.php');
 		}
 		else
 		{

@@ -86,7 +86,7 @@
                     <!-- Ano de Publicação -->
                     <div class="form-group mb-3">
                         <label for="anoDePublicacao">Ano de Publicação</label>
-                        <input type="text" class="form-control" name="anoDePublicacao"  
+                        <input type="date" class="form-control" name="anoDePublicacao"  
                         value="<?php echo $linha["ANO_PUBLICACAO"]; ?>">
                     </div>
 
