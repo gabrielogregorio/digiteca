@@ -28,7 +28,7 @@
         <!-- Cabecalho da Pagina -->
          <div class="card text-white bg-danger mb-2">
             <div class="card-body">
-                <div class="text-center" style="font-size: 1.2em;">Editar Livros Cadastrados</div>
+                <div class="text-center" style="font-size: 1.2em;">Deseja mesmo excluir esse livro?</div>
             </div>        
         </div>
 

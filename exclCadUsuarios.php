@@ -4,7 +4,7 @@
     include('layout/navbar.php');
 
     include('seguranca/seguranca.php');
-    
+
     session_start();
     if(administrador_logado() == false) {
         header("location: index.php");
@@ -14,7 +14,7 @@
     require_once("conexao/conexao.php");
 
     if(!filter_input(INPUT_GET, "CPF", FILTER_SANITIZE_STRING)) {
-        
+
         echo "CPF é inválido!";
 
     } else {
@@ -30,7 +30,7 @@
         <!-- Cabecalho da Pagina -->
          <div class="card text-white bg-danger mb-2">
             <div class="card-body">
-                <div class="text-center" style="font-size: 1.2em;">Deseja mesmo excluir</div>
+                <div class="text-center" style="font-size: 1.2em;">Deseja mesmo excluir esse usuário?</div>
             </div>
         </div>
 
