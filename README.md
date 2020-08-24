@@ -1,8 +1,6 @@
 # Projeto de biblioteca virtual
 Um programa para gerenciamento de livros em uma biblioteca física.
 
-![img](docs/usando.gif)
-
 Este projeto foi feito como trabalho para a disciplina de Programação de Scripts, sendo um projeto destinado ao nosso aprendizado. Não nos responsabilizamos por problemas, bugs ou qualquer coisa que esse projeto possa lhe causar.
 
 ## Tópicos   
@@ -16,10 +14,12 @@ Este projeto foi feito como trabalho para a disciplina de Programação de Scrip
 ### Introdução
 Este é um programa para gerenciamento de livros, usuários e empréstimos para bibliotecas físicas. Segue um gif demonstrativo do programa.
 
+![img](docs/usando.gif)
+
 ### Preparando o ambiente  
 
-1. Primeiramente é necessário instalar o lamp, clique [https://bitnami.com/stack/lamp/installer](aqui), baixe, instale e deixe-o pronto de acordo com seu sistema operacional.  
-2. Depois você precisa abrir o lamp e iniciar o *Apache Web Server* e o "MySQL Database".  
+1. Primeiramente é necessário instalar o lamp, clique [aqui](https://bitnami.com/stack/lamp/installer), baixe, instale e deixe-o pronto de acordo com seu sistema operacional.  
+2. Depois você precisa abrir o lamp, iniciar o "Apache Web Server" e o "MySQL Database".  
 3. Agora as coisas podem ser um pouco diferentes. Se você está acostumado a usar o git, continue, caso contrário, vá para o passo 6.  
 4. Basta clonar o repositório "https://github.com/gabrielogregorio/digiteca" dentro da pasta "htdocs" do lamp.  
 Exemplo no ubuntu:  
@@ -52,7 +52,7 @@ git clone https://github.com/gabrielogregorio/digiteca
 Agora sim, a biblioteca já está pronta para ser usada.  
 
 ### Acessando o programa
-Acesse o endereço (http://localhost/digiteca/)[http://localhost/digiteca/] e a tela da biblioteca será carregada.  
+Acesse o endereço [http://localhost/digiteca/](http://localhost/digiteca/) e a tela da biblioteca será carregada.  
 
 Como demonstração, deixamos o e-mail como "admin@admin.com" e a senha como "admin".  
 Basta preencher as credenciais e clicar em login.  
