@@ -3,7 +3,6 @@ Um programa para gerenciamento de livros em uma biblioteca física.
 
 ![img](docs/usando.gif)
 
-### Aviso
 Este projeto foi feito como trabalho para a disciplina de Programação de Scripts, sendo um projeto destinado ao nosso aprendizado. Não nos responsabilizamos por problemas, bugs ou qualquer coisa que esse projeto possa lhe causar.
 
 ## Tópicos   
@@ -17,7 +16,7 @@ Este projeto foi feito como trabalho para a disciplina de Programação de Scrip
 ### Introdução
 Este é um programa para gerenciamento de livros, usuários e empréstimos para bibliotecas físicas. Segue um gif demonstrativo do programa.
 
-### Como preparar o ambiente?   
+### Preparando o ambiente  
 
 1. Primeiramente é necessário instalar o lamp, clique [https://bitnami.com/stack/lamp/installer](aqui), baixe, instale e deixe-o pronto de acordo com seu sistema operacional.  
 2. Depois você precisa abrir o lamp e iniciar o *Apache Web Server* e o "MySQL Database".  
