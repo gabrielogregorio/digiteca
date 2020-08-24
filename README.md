@@ -6,11 +6,12 @@ Um programa para gerenciamento de livros em uma biblioteca física.
 ### Aviso
 Este projeto foi feito como trabalho para a disciplina de Programação de Scripts, sendo um projeto destinado ao nosso aprendizado. Não nos responsabilizamos por problemas, bugs ou qualquer coisa que esse projeto possa lhe causar.
 
-## Tópicos  
-* [Introdução](Introdução)
-* [Preparando o ambiente](Preparando-o-ambiente)
-* [Acessando o programa](Acessando-o-programa)
-* [Aviso](Aviso)
+## Tópicos   
+
+- [Introdução](#Introdução)   
+- [Preparando o ambiente](#Preparando-o-ambiente)   
+- [Acessando o programa](#Acessando-o-programa)   
+- [Aviso](#Aviso)   
 
 
 ### Introdução
@@ -57,7 +58,7 @@ Acesse o endereço (http://localhost/digiteca/)[http://localhost/digiteca/] e a 
 Como demonstração, deixamos o e-mail como "admin@admin.com" e a senha como "admin".  
 Basta preencher as credenciais e clicar em login.  
 
-#### Aviso  
-> Como demonstração, deixamos alguns dados cadastrados. Para excluir um usuário por exemplo, primeiro remova todos os empréstimos deste usuário.  
+#### Aviso    
+Como demonstração, deixamos alguns dados cadastrados. Para excluir um usuário por exemplo, primeiro remova todos os empréstimos deste usuário.  
 
 
