@@ -1,52 +1,38 @@
-<?php 
-    include('seguranca/seguranca.php');
-    
-    session_start();
-    if(administrador_logado() == false) {
-        header("location: index.php");
-        exit;
-    }
+<?php
+# Impede que usuários acessem a página se não estiverem logados
+include('../../seguranca/seguranca.php');
+session_start();
+if(administrador_logado() == false) {header("location: /Digiteca/index.php"); exit;}
 
- ?>
+include('../../layout/header.html');
+include('../../layout/navbar.php');
+include("../../recursos.php");
+?>
 
-<?php include('layout/header.html');?>
-<?php include('layout/navbar.php'); ?>
-<?php include("recursos.php"); ?>
 
 <div class="container mx-auto mt-4">
-   <div class="alert alert-info" role="alert">Visualizar Emprestimos</div>
-
-        <form id="search-form" name="pesquisa" action="visEmprestimos.php" method="get">
-
-            <div class="input-group">
-                <div class="input-group-prepend col-md-8">
-                    <input type="text" name="search" class="form-control" placeholder="Digite sua pesquisa" aria-describedby="basic-addon2">
-                </div>
-
-                <select name="tipobusca" class="">
-                    <option value="Nome do livro">Nome do livro</option>
-                    <option value="Nome da pessoa">Nome da pessoa</option>
-                    <option value="CPF">CPF</option>
-                    <option value="ISBN">ISBN</option>
-                </select>
-
-                <button type="submit" class="btn btn-info">Pesquisar</button>
+    <div class="alert alert-info" role="alert">Visualizar Emprestimos</div>
+    <form id="search-form" name="pesquisa" action="/Digiteca/views/emprestimos/visualizar.php" method="get">
+        <div class="input-group">
+            <div class="input-group-prepend col-md-8">
+                <input type="text" name="search" class="form-control" placeholder="Digite sua pesquisa" aria-describedby="basic-addon2">
             </div>
-        </form>
 
+            <select name="tipobusca" class="">
+                <option value="Nome do livro">Nome do livro</option>
+                <option value="Nome da pessoa">Nome da pessoa</option>
+                <option value="CPF">CPF</option>
+                <option value="ISBN">ISBN</option>
+            </select>
 
-
+            <button type="submit" class="btn btn-info">Pesquisar</button>
+        </div>
+    </form>
 
    <div class="form-group">
       <label></label>
-
       <?php
-         require_once("conexao/conexao.php");
-
-
-
-
-
+         require_once("../../conexao/conexao.php");
 
          if (isset($_GET["search"]) == false){
              $select = $conexao->query("SELECT EMPRESTIMO.ID, EMPRESTIMO.STATUS_LIVRO, USUARIOS.NOME, USUARIOS.SOBRENOME, EMPRESTIMO.DATA_EMPRESTADO, EMPRESTIMO.TEMPO_EMPRESTIMO, LIVROS.TITULO
@@ -57,18 +43,14 @@
                 ON USUARIOS.CPF = EMPRESTIMO.CPF_PESSOA
                 GROUP BY ID
                 ORDER BY EMPRESTIMO.DATA_EMPRESTADO DESC");
-
-
         } else {
-
-            $ITEM_TIPO = $_GET["search"];            
+            $ITEM_TIPO = $_GET["search"];
             $ITEM_PESQUISA = $_GET["tipobusca"];
 
             if ($ITEM_PESQUISA == "Nome do livro"){ $FILTRO_BUSCA = "LIVROS.TITULO"; }
             else if ($ITEM_PESQUISA == "Nome da pessoa"){ $FILTRO_BUSCA = "USUARIOS.NOME"; }
             else if ($ITEM_PESQUISA == "CPF"){ $FILTRO_BUSCA = "USUARIOS.CPF"; }
-            else if ($ITEM_PESQUISA == "ISBN"){ $FILTRO_BUSCA = "LIVROS.ISBN"; } 
-
+            else if ($ITEM_PESQUISA == "ISBN"){ $FILTRO_BUSCA = "LIVROS.ISBN"; }
 
             $select = $conexao->query("SELECT EMPRESTIMO.ID, EMPRESTIMO.STATUS_LIVRO, USUARIOS.NOME, USUARIOS.SOBRENOME, EMPRESTIMO.DATA_EMPRESTADO, EMPRESTIMO.TEMPO_EMPRESTIMO, LIVROS.TITULO
               FROM EMPRESTIMO
@@ -81,14 +63,13 @@
               ORDER BY EMPRESTIMO.DATA_EMPRESTADO DESC
               ");
         }
-         
+
         $resultado = $select->fetchAll();
-         
+
         if($resultado)
         {
-            foreach ($resultado as $linha) 
+            foreach ($resultado as $linha)
             {
-  
             ?>
               <div class="card">
                  <div class="card-body">
@@ -110,39 +91,35 @@
                        }
                        $ID = $linha["ID"];
 
-
                        if ($linha["STATUS_LIVRO"] == "DEVOLVIDO") {
                             $texto_botao = "Devolvido";
                             $tipo_botao = "success";
-                            $link_botao = "cadEmprestimosMarcarPendenciaBD.php";
-
+                            $link_botao = "/Digiteca/DB/emprestimos/MarcarPendencia.php";
                         }
                         else
                         {
                             $texto_botao = "Marcar Devolvido";
                             $tipo_botao = "info";
-                            $link_botao = "cadEmprestimosDevolverBD.php";
+                            $link_botao = "/Digiteca/DB/emprestimos/MarcarDevolvido.php";
                         }
 
                         echo( "
                            <form name=\"pendencia\" action=\"$link_botao\" method=\"post\">
                               <input type=\"hidden\" name=\"txtIDEMPRESTIMO\" value=\"$ID\">
-                              <button type=\"submit\" class=\"btn btn-$tipo_botao\">$texto_botao</button> 
+                              <button type=\"submit\" class=\"btn btn-$tipo_botao\">$texto_botao</button>
                            </form>
                        ");
                     ?>
 
                  </div>
               </div>
-            <?php 
+            <?php
                 }
             } else {
                 echo("<div class=\"alert alert-secondary\" role=\"alert\">Nenhum resultado</div>");
             }
-
-
             ?>
    </div>
 </div>
 
-<?php include('layout/footer.html');?>
+<?php include('../../layout/footer.html');?>

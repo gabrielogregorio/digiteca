@@ -1,17 +1,12 @@
-<?php 
+<?php
+# Impede que usuários acessem a página se não estiverem logados
+include('../../seguranca/seguranca.php');
+session_start();
+if(administrador_logado() == false) {header("location: /Digiteca/index.php"); exit;}
 
-	include('layout/header.html');
-	include('layout/navbar.php');
-
-    include('seguranca/seguranca.php');
-    
-    session_start();
-
-    if (administrador_logado() == false){
-       header("location:index.php");
-       exit;
-    }
- ?>
+include('../../layout/header.html');
+include('../../layout/navbar.php');
+?>
 
 	<div class="container" style="margin-top: 1.4rem;">
 
@@ -19,15 +14,13 @@
  		<div class="card text-white bg-primary mb-2">
 			<div class="card-body">
 				<div class="text-center" style="font-size: 1.2em;">Efetuar Cadastro de Livros</div>
-			</div>        
+			</div>
 		</div>
 
 		<div class="card bg-light">
-
 			<div class="card-body">
-		
 				<!-- Aqui começa o nosso formulario -->
-				<form action="cadLivrosBD.php" method="post">
+				<form action="/Digiteca/DB/livros/cadastrar.php" method="post">
 
 					<!-- Título -->
 					<div class="form-group mb-3">
@@ -79,10 +72,9 @@
 
 					<button type="reset" class="btn btn-secondary btn-lg"  onclick="history.go(-1)">Voltar</button>
 					<button type="submit" class="btn btn-primary btn-lg">Salvar</button>
-
 				</form>
-		</div>
+		    </div>
+	    </div>
+    </div>
 
-	</div>
-
-<?php include('layout/footer.html'); ?>
+<?php include('../../layout/footer.html'); ?>

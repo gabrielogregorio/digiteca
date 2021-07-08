@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     if (function_exists("administrador_logado") == false) {
 	    function administrador_logado(){
@@ -11,8 +11,7 @@
 
 		        //destruir a sessão
 		        session_destroy();
-
-		        return false;
+                return false;
 		    }
 		    return true;
 	   }
